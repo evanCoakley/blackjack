@@ -11,11 +11,46 @@
 
 
 function handValue(hand) {
+  let total = 0;
 
 
+  for (let i = 0; i < hand.length; i++) {
 
-  return;
+    if ((hand[i] === "J") || (hand[i] === "Q") || (hand[i] === "K")) {
+      hand[i] = "10";
+      total += parseInt(hand[i]);
+    } else if (hand[i] !== "A") {
+      total += parseInt(hand[i]);
+    }
+
+  }
+
+
+  for (var k = 0; k < hand.length; k++) {
+    if (hand[k] === "A") {
+      if (total >= 11) {
+        hand[k] = "1";
+        total += parseInt(hand[k]);
+      } else {
+        hand[k] = "11";
+        total += parseInt(hand[k]);
+
+      }
+    }
+  }
+  console.log(hand, total);
+  return total;
+
 }
+
+
+
+
+
+
+
+
+
 
 
 /* -----  Hints ------
